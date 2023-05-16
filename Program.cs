@@ -1,4 +1,7 @@
 
+using BlogManagementAPI.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace BlogManagementAPI
 {
     public class Program
@@ -13,7 +16,10 @@ namespace BlogManagementAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddDbContext<Context>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
