@@ -2,6 +2,7 @@
 
 This project is a blogging platform built with React.js for the frontend and a .NET 7 Web API for the backend.
 
+
 ## Overview
 
 The goal of this project is to develop a blogging platform where I can publish blog posts. The platform will also include a user authentication system so that only I can create blog posts. The frontend of the application will be built using React.js, while the backend will use a .NET 7 Web API. For data persistence, I will use Entity Framework with a code-first approach to manage a SQL database.
@@ -48,3 +49,8 @@ The database will include three main tables: `User`, `Post`, and `UserComment`.
 1. **Test the application**: Ensure that all features are working as expected.
 2. **Deploy the application**: Deploy the frontend and backend to a hosting service.
 
+## Deployment
+
+The application is planned to be deployed at [alvin-strandberg.se](https://www.alvin-strandberg.se/). Please note that the website is currently under a total overhaul.
+
+Please follow this project for updates and release announcements.
