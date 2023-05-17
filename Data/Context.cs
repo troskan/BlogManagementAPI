@@ -13,6 +13,7 @@ namespace BlogManagementAPI.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Category> Categorys { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -70,8 +71,7 @@ namespace BlogManagementAPI.Data
                 {
                     CategoryID = 2,
                     Name = "Hobby",
-                    Description = "Non-programming stuff, such as bicycling, building, motorcycles, you name it."
-
+                    Description = "Non-programming stuff, activites"
                 },
                  new Category
                  {
@@ -92,7 +92,7 @@ namespace BlogManagementAPI.Data
                     CategoryID = 1,
 
                 }
-                );;
+                );
         }
 
     }
