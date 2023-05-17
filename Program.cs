@@ -1,6 +1,9 @@
 
 using BlogManagementAPI.Data;
+using BlogManagementAPI.Repositories;
+using BlogManagementAPI.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ModelsLibraryBlog;
 
 namespace BlogManagementAPI
 {
@@ -20,6 +23,8 @@ namespace BlogManagementAPI
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
             });
+
+            builder.Services.AddScoped<IRepository<Post>, PostRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

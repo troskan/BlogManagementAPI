@@ -22,10 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ModelsLibraryBlog\ModelsLibraryBlog.csproj" />
   </ItemGroup>
 
