@@ -1,6 +1,8 @@
-﻿namespace BlogManagementAPI.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace BlogManagementAPI.Data
 {
-    public class Context
+    public class Context : DbContext
     {
     }
 }

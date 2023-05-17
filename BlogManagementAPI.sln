@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogManagementAPI", "BlogManagementAPI.csproj", "{7A53B041-4E01-4DBA-A3C0-95BCD0F31387}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelsLibraryBlog", "..\ModelsLibraryBlog\ModelsLibraryBlog.csproj", "{F4CC6B6F-49FD-4528-9469-2767D2D83803}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7A53B041-4E01-4DBA-A3C0-95BCD0F31387}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A53B041-4E01-4DBA-A3C0-95BCD0F31387}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A53B041-4E01-4DBA-A3C0-95BCD0F31387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4CC6B6F-49FD-4528-9469-2767D2D83803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4CC6B6F-49FD-4528-9469-2767D2D83803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4CC6B6F-49FD-4528-9469-2767D2D83803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4CC6B6F-49FD-4528-9469-2767D2D83803}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
