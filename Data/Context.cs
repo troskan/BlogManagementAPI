@@ -42,7 +42,7 @@ namespace BlogManagementAPI.Data
                 {
                     UserID = 1,
                     UserName = "Alvin",
-                    Password = "Billyidol96",
+                    Password = "HorseAndWhiteWine",
                     RoleID = 3,
                     Email = "alvin.strandberg@proton.me",
                     DateRegistered = DateTime.Now
@@ -51,7 +51,7 @@ namespace BlogManagementAPI.Data
                 {
                     UserID = 2,
                     UserName = "Maja",
-                    Password = "TrollHealer96",
+                    Password = "TrollHealer",
                     RoleID = 2,
                     Email = "majanilsson8131@gmail.se",
                     DateRegistered = DateTime.Now
