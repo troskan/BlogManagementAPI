@@ -1,4 +1,5 @@
-﻿using BlogManagementAPI.Repositories.Interfaces;
+﻿using BlogManagementAPI.Repositories.DTO;
+using BlogManagementAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using ModelsLibraryBlog;
 
@@ -9,16 +10,18 @@ namespace BlogManagementAPI.Controllers
     public class PostController : Controller
     {
         private readonly IRepository<Post> _db;
+        private readonly IPostRepository<PostGetDTO> _postRepository;
 
-        public PostController(IRepository<Post> db)
+        public PostController(IRepository<Post> db, IPostRepository<PostGetDTO> postRepository)
         {
             _db = db;
+            _postRepository = postRepository;
         }
         // GET: api/post
         [HttpGet]
         public async Task<IActionResult> GetAllPosts()
         {
-            var posts = await _db.GetAll();
+            var posts = await _postRepository.GetPosts();
             return Ok(posts);
         }
 

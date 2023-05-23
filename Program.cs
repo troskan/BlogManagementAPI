@@ -1,6 +1,7 @@
 
 using BlogManagementAPI.Data;
 using BlogManagementAPI.Repositories;
+using BlogManagementAPI.Repositories.DTO;
 using BlogManagementAPI.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using ModelsLibraryBlog;
@@ -14,6 +15,15 @@ namespace BlogManagementAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("http://localhost:5173") 
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
+            });
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -25,6 +35,8 @@ namespace BlogManagementAPI
             });
 
             builder.Services.AddScoped<IRepository<Post>, PostRepository>();
+            builder.Services.AddScoped<IPostRepository<PostGetDTO>, PostRepository>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -33,8 +45,10 @@ namespace BlogManagementAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            // Enable CORS
+            app.UseCors();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

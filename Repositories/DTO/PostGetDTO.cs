@@ -3,13 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlogManagementAPI.Repositories.DTO
 {
-    public class PostGet
+    public class PostGetDTO
     {
         public int PostID { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
 
         public int UserID { get; set; }
+        public string RoleName { get; set; }
         public string UserName { get; set; } 
 
         public List<string> ImageUrls { get; set; } = null;
