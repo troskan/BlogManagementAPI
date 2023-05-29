@@ -6,19 +6,19 @@ namespace BlogManagementAPI.Repositories
 {
      public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly Context _context;
+        private readonly Context _db;
         private readonly DbSet<T> _dbSet;
 
         public Repository(Context context)
         {
-            _context = context;
+            _db = context;
             _dbSet = context.Set<T>();
         }
 
         public async Task<T> Add(T entity)
         {
             await _dbSet.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await _db.SaveChangesAsync();
             return entity;
         }
 
@@ -31,7 +31,7 @@ namespace BlogManagementAPI.Repositories
             }
 
             _dbSet.Remove(entity);
-            await _context.SaveChangesAsync();
+            await _db.SaveChangesAsync();
             return entity;
         }
 
@@ -48,7 +48,7 @@ namespace BlogManagementAPI.Repositories
         public async Task<T> Update(T entity)
         {
             _dbSet.Update(entity);
-            await _context.SaveChangesAsync();
+            await _db.SaveChangesAsync();
             return entity;
         }
     }

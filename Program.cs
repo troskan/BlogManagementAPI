@@ -19,7 +19,7 @@ namespace BlogManagementAPI
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins("http://localhost:5173") 
+                    builder.WithOrigins("https://www.alvin-strandberg.se", "http://localhost:5173", "https://www.alvin-strandberg.se/blog")
                            .AllowAnyHeader()
                            .AllowAnyMethod();
                 });
@@ -36,6 +36,7 @@ namespace BlogManagementAPI
 
             builder.Services.AddScoped<IRepository<Post>, PostRepository>();
             builder.Services.AddScoped<IPostRepository<PostGetDTO>, PostRepository>();
+            builder.Services.AddScoped<UserRepository>();
 
             var app = builder.Build();
 

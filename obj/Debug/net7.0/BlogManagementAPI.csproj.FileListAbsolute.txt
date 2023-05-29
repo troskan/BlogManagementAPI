@@ -76,3 +76,6 @@ C:\Users\alvin\source\repos\BlogManagementAPI\obj\Debug\net7.0\refint\BlogManage
 C:\Users\alvin\source\repos\BlogManagementAPI\obj\Debug\net7.0\BlogManagementAPI.pdb
 C:\Users\alvin\source\repos\BlogManagementAPI\obj\Debug\net7.0\BlogManagementAPI.genruntimeconfig.cache
 C:\Users\alvin\source\repos\BlogManagementAPI\obj\Debug\net7.0\ref\BlogManagementAPI.dll
+C:\Users\alvin\source\repos\BlogManagementAPI\bin\Debug\net7.0\AspNetCoreRateLimit.dll
+C:\Users\alvin\source\repos\BlogManagementAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\alvin\source\repos\BlogManagementAPI\bin\Debug\net7.0\BCrypt.Net-Next.dll
