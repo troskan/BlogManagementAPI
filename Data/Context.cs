@@ -37,26 +37,7 @@ namespace BlogManagementAPI.Data
                 }
             );
 
-            modelBuilder.Entity<User>().HasData(
-                new User
-                {
-                    UserID = 1,
-                    UserName = "Alvin",
-                    Password = "HorseAndWhiteWine",
-                    RoleID = 3,
-                    Email = "alvin.strandberg@proton.me",
-                    DateRegistered = DateTime.Now
-                },
-                new User
-                {
-                    UserID = 2,
-                    UserName = "Maja",
-                    Password = "TrollHealer",
-                    RoleID = 2,
-                    Email = "majanilsson8131@gmail.se",
-                    DateRegistered = DateTime.Now
-                }
-            );
+;
 
 
             modelBuilder.Entity<Category>().HasData(
