@@ -57,7 +57,30 @@ namespace BlogManagementAPI.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login(LoginDTO request)
         {
+            var user = await _db.Users.FirstOrDefaultAsync(user => user.UserName == request.UserName);
+            if(user == null)
+            {
+                return BadRequest("User not found.");
+            }
 
+            if (user.UserName != request.UserName)
+            {
+                return NotFound("Username was not found");
+            }
+            if(!VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
+            {
+                return BadRequest("Wrong password.");
+            }
+
+            return Ok("Json Web Token Granted +1");
+        }
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[]passwordSalt)
+        {
+            using(var hmac = new HMACSHA512(passwordSalt))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return computedHash.SequenceEqual(passwordHash);
+            }
         }
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
