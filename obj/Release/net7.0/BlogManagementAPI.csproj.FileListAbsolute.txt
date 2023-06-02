@@ -78,3 +78,4 @@ C:\Users\alvin\source\repos\BlogManagementAPI\obj\Release\net7.0\BlogManagementA
 C:\Users\alvin\source\repos\BlogManagementAPI\obj\Release\net7.0\ref\BlogManagementAPI.dll
 C:\Users\alvin\source\repos\BlogManagementAPI\bin\Release\net7.0\AspNetCoreRateLimit.dll
 C:\Users\alvin\source\repos\BlogManagementAPI\bin\Release\net7.0\Newtonsoft.Json.dll
+C:\Users\alvin\source\repos\BlogManagementAPI\bin\Release\net7.0\BCrypt.Net-Next.dll

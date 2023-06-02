@@ -30,7 +30,7 @@ namespace BlogManagementAPI.Repositories
                 return null;
 
             // Auth success
-            // Return a new User object without the hashed password
+            // Return a new User object without the hash        ed password
             return new User
             {
                 UserID = user.UserID,

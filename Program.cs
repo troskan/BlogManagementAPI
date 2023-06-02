@@ -19,7 +19,7 @@ namespace BlogManagementAPI
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins("https://www.alvin-strandberg.se", "http://localhost:5173", "https://www.alvin-strandberg.se/blog")
+                    builder.WithOrigins("https://www.alvin-strandberg.se", "http://localhost:5173")
                            .AllowAnyHeader()
                            .AllowAnyMethod();
                 });
@@ -48,14 +48,9 @@ namespace BlogManagementAPI
             }
             // Enable CORS
             app.UseCors();
-
             //app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
         }
     }
