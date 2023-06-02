@@ -4,7 +4,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using ModelsLibraryBlog;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 
 namespace BlogManagementAPI.Controllers
@@ -14,10 +17,15 @@ namespace BlogManagementAPI.Controllers
     public class AuthController : ControllerBase
     {
         private Context _db;
-        public AuthController(Context context)
+        private readonly IConfiguration _configuration;
+
+        public AuthController(Context context, IConfiguration configuration)
         {
             _db = context;
+            _configuration = configuration;
         }
+
+
         [HttpPost("register")]
 
 
@@ -57,7 +65,10 @@ namespace BlogManagementAPI.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login(LoginDTO request)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(user => user.UserName == request.UserName);
+            var user = await _db.Users
+                .Include(user => user.Role)
+                .FirstOrDefaultAsync(user => user.UserName == request.UserName);
+
             if(user == null)
             {
                 return BadRequest("User not found.");
@@ -72,7 +83,31 @@ namespace BlogManagementAPI.Controllers
                 return BadRequest("Wrong password.");
             }
 
-            return Ok("Json Web Token Granted +1");
+            var token = CreateToken(user);
+            return Ok(token);
+        }
+        private string CreateToken(User user)
+        {
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Role, user.Role.Name)
+            };
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8
+                .GetBytes(_configuration
+                .GetSection("AppSettings:Token")
+                .Value));
+
+            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddHours(1),
+                signingCredentials: cred);
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return jwt;
         }
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[]passwordSalt)
         {
