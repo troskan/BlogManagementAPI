@@ -1,7 +1,9 @@
 ﻿using BlogManagementAPI.Repositories.DTO;
 using BlogManagementAPI.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModelsLibraryBlog;
+using System.Data;
 
 namespace BlogManagementAPI.Controllers
 {
@@ -35,6 +37,7 @@ namespace BlogManagementAPI.Controllers
 
         // POST: api/post
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreatePost([FromBody] Post post)
         {
             if (!ModelState.IsValid)
@@ -48,6 +51,7 @@ namespace BlogManagementAPI.Controllers
 
         // PUT: api/post/{id}
         [HttpPut("{id:int}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdatePost(int id, [FromBody] Post post)
         {
             if (!ModelState.IsValid)
@@ -67,6 +71,7 @@ namespace BlogManagementAPI.Controllers
         }
 
         // DELETE: api/post/{id}
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeletePost(int id)
         {
