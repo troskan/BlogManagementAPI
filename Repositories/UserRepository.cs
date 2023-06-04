@@ -12,34 +12,34 @@ namespace BlogManagementAPI.Repositories
             _db = db;
         }
 
-        public async Task<User> Register(User user)
-        {
-            user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
-            _db.Users.Add(user);
-            await _db.SaveChangesAsync();
-            return user;
-        }
+        //public async Task<User> Register(User user)
+        //{
+        //    user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+        //    _db.Users.Add(user);
+        //    await _db.SaveChangesAsync();
+        //    return user;
+        //}
 
-        public async Task<User> Login(string username, string password)
-        {
-            var user = await _db.Users.SingleOrDefaultAsync(x => x.UserName == username);
-            if (user == null)
-                return null;
+        //public async Task<User> Login(string username, string password)
+        //{
+        //    var user = await _db.Users.SingleOrDefaultAsync(x => x.UserName == username);
+        //    if (user == null)
+        //        return null;
 
-            if (!BCrypt.Net.BCrypt.Verify(password, user.Password))
-                return null;
+        //    if (!BCrypt.Net.BCrypt.Verify(password, user.Password))
+        //        return null;
 
-            // Auth success
-            // Return a new User object without the hash        ed password
-            return new User
-            {
-                UserID = user.UserID,
-                UserName = user.UserName,
-                Email = user.Email,
-                RoleID = user.RoleID,
-                DateRegistered = user.DateRegistered
-                // Exclude the Password field
-            };
-        }
+        //    // Auth success
+        //    // Return a new User object without the hash        ed password
+        //    return new User
+        //    {
+        //        UserID = user.UserID,
+        //        UserName = user.UserName,
+        //        Email = user.Email,
+        //        RoleID = user.RoleID,
+        //        DateRegistered = user.DateRegistered
+        //        // Exclude the Password field
+        //    };
+        //}
     }
 }

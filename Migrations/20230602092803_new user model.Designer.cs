@@ -4,6 +4,7 @@ using BlogManagementAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogManagementAPI.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230602092803_new user model")]
+    partial class newusermodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,7 +157,7 @@ namespace BlogManagementAPI.Migrations
                             PostID = 1,
                             CategoryID = 1,
                             Content = "Splitting some wood.",
-                            DatePosted = new DateTime(2023, 6, 2, 14, 38, 55, 511, DateTimeKind.Local).AddTicks(1501),
+                            DatePosted = new DateTime(2023, 6, 2, 11, 28, 3, 379, DateTimeKind.Local).AddTicks(3176),
                             Title = "Wood splitting",
                             UserID = 1
                         });
