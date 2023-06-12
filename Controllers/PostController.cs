@@ -36,17 +36,27 @@ namespace BlogManagementAPI.Controllers
         }
 
         // POST: api/post
-        [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> CreatePost([FromBody] Post post)
+        [HttpPost("test")]
+       // [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreatePost([FromBody] PostCreateDTO post)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            Post newPost = new Post()
+            {
+                Title = post.Title,
+                Content = post.Content,
+                DatePosted = DateTime.Now,
+                CategoryID = post.CategoryID,
+                ImageUrls = post.ImageUrls?.Select(url => new ImageUrl { Url = url }).ToList(),
+                UserID = post.UserID,
 
-            var createdPost = await _db.Add(post);
-            return CreatedAtAction(nameof(GetPostById), new { id = createdPost.PostID }, createdPost);
+            };
+            var createdPost = await _db.Add(newPost);
+
+            return CreatedAtAction(nameof(GetPostById), new { id = newPost.PostID }, newPost);
         }
 
         // PUT: api/post/{id}

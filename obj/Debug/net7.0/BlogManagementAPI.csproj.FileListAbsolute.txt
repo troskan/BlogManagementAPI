@@ -1,5 +1,4 @@
 C:\Users\alvin\source\repos\BlogManagementAPI\bin\Debug\net7.0\appsettings.Development.json
-C:\Users\alvin\source\repos\BlogManagementAPI\bin\Debug\net7.0\appsettings.json
 C:\Users\alvin\source\repos\BlogManagementAPI\bin\Debug\net7.0\BlogManagementAPI.exe
 C:\Users\alvin\source\repos\BlogManagementAPI\bin\Debug\net7.0\BlogManagementAPI.deps.json
 C:\Users\alvin\source\repos\BlogManagementAPI\bin\Debug\net7.0\BlogManagementAPI.runtimeconfig.json
