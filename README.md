@@ -2,6 +2,13 @@
 
 This project is a blogging platform built with React.js for the frontend and a .NET 7 Web API for the backend.
 
+[Alvin-Strandberg.se](https://www.alvin-strandberg.se)
+
+<img src="https://i.imgur.com/p7Kztub.jpg" style="height: 200px">
+
+<img src="https://i.imgur.com/0hrpMGz.jpg" style="height: 200px">
+
+
 
 ## Overview
 
