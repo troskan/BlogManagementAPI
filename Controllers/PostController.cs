@@ -37,7 +37,7 @@ namespace BlogManagementAPI.Controllers
 
         // POST: api/post
         [HttpPost("test")]
-       // [Authorize(Roles = "Admin")]
+  //      [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreatePost([FromBody] PostCreateDTO post)
         {
             if (!ModelState.IsValid)

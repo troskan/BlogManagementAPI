@@ -4,6 +4,7 @@ using BlogManagementAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogManagementAPI.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230612131647_minimal ImageURL")]
+    partial class minimalImageURL
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,7 +102,7 @@ namespace BlogManagementAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageUrlID"));
 
-                    b.Property<int>("PostID")
+                    b.Property<int?>("PostID")
                         .HasColumnType("int");
 
                     b.Property<string>("Url")
@@ -154,7 +157,7 @@ namespace BlogManagementAPI.Migrations
                             PostID = 1,
                             CategoryID = 1,
                             Content = "Splitting some wood.",
-                            DatePosted = new DateTime(2023, 6, 12, 15, 26, 20, 443, DateTimeKind.Local).AddTicks(6564),
+                            DatePosted = new DateTime(2023, 6, 12, 15, 16, 47, 801, DateTimeKind.Local).AddTicks(5000),
                             Title = "Wood splitting",
                             UserID = 1
                         });
@@ -245,13 +248,9 @@ namespace BlogManagementAPI.Migrations
 
             modelBuilder.Entity("ModelsLibraryBlog.ImageUrl", b =>
                 {
-                    b.HasOne("ModelsLibraryBlog.Post", "Post")
+                    b.HasOne("ModelsLibraryBlog.Post", null)
                         .WithMany("ImageUrls")
-                        .HasForeignKey("PostID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Post");
+                        .HasForeignKey("PostID");
                 });
 
             modelBuilder.Entity("ModelsLibraryBlog.Post", b =>
