@@ -30,7 +30,8 @@ namespace BlogManagementAPI.Repositories
                                   ImageUrls = post.ImageUrls.Select(iu => iu.Url).ToList(),
                                   DatePosted = post.DatePosted,
                                   CategoryID = post.CategoryID,
-                                  CategoryName = c.Name
+                                  CategoryName = c.Name,
+                                  YoutubeUrl = post.YoutubeUrl
                               };
             return postDetails.ToList();
         }
