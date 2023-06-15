@@ -16,6 +16,7 @@ namespace BlogManagementAPI.Repositories.DTO
         public int UserID { get; set; }
 
         public List<string> ImageUrls { get; set; } = null;
+        public string? YoutubeUrl { get; set; } = null;
 
         [Required]
         public int CategoryID { get; set; }

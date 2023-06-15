@@ -377,3 +377,30 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230615074631_youtube-url')
+BEGIN
+    ALTER TABLE [Posts] ADD [YoutubeUrl] nvarchar(max) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230615074631_youtube-url')
+BEGIN
+    EXEC(N'UPDATE [Posts] SET [DatePosted] = ''2023-06-15T09:46:31.1238673+02:00'', [YoutubeUrl] = NULL
+    WHERE [PostID] = 1;
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230615074631_youtube-url')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230615074631_youtube-url', N'7.0.5');
+END;
+GO
+
+COMMIT;
+GO
+
