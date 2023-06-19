@@ -1,0 +1,12 @@
+C:\Users\alvin\source\repos\ModelsLibraryBlog\bin\Release\net7.0\ModelsLibraryBlog.deps.json
+C:\Users\alvin\source\repos\ModelsLibraryBlog\bin\Release\net7.0\ModelsLibraryBlog.dll
+C:\Users\alvin\source\repos\ModelsLibraryBlog\bin\Release\net7.0\ModelsLibraryBlog.pdb
+C:\Users\alvin\source\repos\ModelsLibraryBlog\obj\Release\net7.0\ModelsLibraryBlog.csproj.AssemblyReference.cache
+C:\Users\alvin\source\repos\ModelsLibraryBlog\obj\Release\net7.0\ModelsLibraryBlog.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alvin\source\repos\ModelsLibraryBlog\obj\Release\net7.0\ModelsLibraryBlog.AssemblyInfoInputs.cache
+C:\Users\alvin\source\repos\ModelsLibraryBlog\obj\Release\net7.0\ModelsLibraryBlog.AssemblyInfo.cs
+C:\Users\alvin\source\repos\ModelsLibraryBlog\obj\Release\net7.0\ModelsLibraryBlog.csproj.CoreCompileInputs.cache
+C:\Users\alvin\source\repos\ModelsLibraryBlog\obj\Release\net7.0\ModelsLibraryBlog.dll
+C:\Users\alvin\source\repos\ModelsLibraryBlog\obj\Release\net7.0\refint\ModelsLibraryBlog.dll
+C:\Users\alvin\source\repos\ModelsLibraryBlog\obj\Release\net7.0\ModelsLibraryBlog.pdb
+C:\Users\alvin\source\repos\ModelsLibraryBlog\obj\Release\net7.0\ref\ModelsLibraryBlog.dll

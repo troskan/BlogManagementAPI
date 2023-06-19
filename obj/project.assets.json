@@ -4029,8 +4029,8 @@
     },
     "ModelsLibraryBlog/1.0.0": {
       "type": "project",
-      "path": "../ModelsLibraryBlog/ModelsLibraryBlog.csproj",
-      "msbuildProject": "../ModelsLibraryBlog/ModelsLibraryBlog.csproj"
+      "path": "ModelsLibraryBlog/ModelsLibraryBlog.csproj",
+      "msbuildProject": "ModelsLibraryBlog/ModelsLibraryBlog.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4074,8 +4074,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\alvin\\source\\repos\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj": {
-              "projectPath": "C:\\Users\\alvin\\source\\repos\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj"
+            "C:\\Users\\alvin\\source\\repos\\BlogManagementAPI\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj": {
+              "projectPath": "C:\\Users\\alvin\\source\\repos\\BlogManagementAPI\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj"
             }
           }
         }

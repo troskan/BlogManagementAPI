@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ModelsLibraryBlog\**" />
+    <Content Remove="ModelsLibraryBlog\**" />
+    <EmbeddedResource Remove="ModelsLibraryBlog\**" />
+    <None Remove="ModelsLibraryBlog\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="appsettings.json" />
   </ItemGroup>
 
@@ -33,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModelsLibraryBlog\ModelsLibraryBlog.csproj" />
+    <ProjectReference Include="ModelsLibraryBlog\ModelsLibraryBlog.csproj" />
   </ItemGroup>
 
 </Project>

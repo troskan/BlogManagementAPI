@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\alvin\\source\\repos\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj": {
-                "projectPath": "C:\\Users\\alvin\\source\\repos\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj"
+              "C:\\Users\\alvin\\source\\repos\\BlogManagementAPI\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj": {
+                "projectPath": "C:\\Users\\alvin\\source\\repos\\BlogManagementAPI\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj"
               }
             }
           }
@@ -108,14 +108,14 @@
         }
       }
     },
-    "C:\\Users\\alvin\\source\\repos\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj": {
+    "C:\\Users\\alvin\\source\\repos\\BlogManagementAPI\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alvin\\source\\repos\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj",
+        "projectUniqueName": "C:\\Users\\alvin\\source\\repos\\BlogManagementAPI\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj",
         "projectName": "ModelsLibraryBlog",
-        "projectPath": "C:\\Users\\alvin\\source\\repos\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj",
+        "projectPath": "C:\\Users\\alvin\\source\\repos\\BlogManagementAPI\\ModelsLibraryBlog\\ModelsLibraryBlog.csproj",
         "packagesPath": "C:\\Users\\alvin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alvin\\source\\repos\\ModelsLibraryBlog\\obj\\",
+        "outputPath": "C:\\Users\\alvin\\source\\repos\\BlogManagementAPI\\ModelsLibraryBlog\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
