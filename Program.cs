@@ -36,7 +36,6 @@ namespace BlogManagementAPI
 
             builder.Services.AddScoped<IRepository<Post>, PostRepository>();
             builder.Services.AddScoped<IPostRepository<PostGetDTO>, PostRepository>();
-            builder.Services.AddScoped<UserRepository>();
 
             var app = builder.Build();
 
