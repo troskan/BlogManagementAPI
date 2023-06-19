@@ -38,7 +38,7 @@ namespace BlogManagementAPI.Controllers
         // POST: api/post
         [HttpPost("test")]
   //      [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> CreatePost([FromBody] PostCreateDTO post)
+        public async Task<IActionResult> CreatePost([FromBody] PostEditDTO post)
         {
             if (!ModelState.IsValid)
             {
@@ -62,13 +62,25 @@ namespace BlogManagementAPI.Controllers
 
         // PUT: api/post/{id}
         [HttpPut("{id:int}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdatePost(int id, [FromBody] Post post)
+        //[Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UpdatePost(int id, [FromBody] PostEditDTO post)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            Post newPost = new Post()
+            {
+                Title = post.Title,
+                Content = post.Content,
+                DatePosted = DateTime.Now,
+                CategoryID = post.CategoryID,
+                ImageUrls = post.ImageUrls?.Select(url => new ImageUrl { Url = url }).ToList(),
+                UserID = post.UserID,
+                YoutubeUrl = post.YoutubeUrl
+
+            };
 
             var existingPost = await _db.Get(id);
             if (existingPost == null)
@@ -76,8 +88,8 @@ namespace BlogManagementAPI.Controllers
                 return NotFound();
             }
 
-            post.PostID = existingPost.PostID;
-            await _db.Update(post);
+            newPost.PostID = existingPost.PostID;
+            await _db.Update(newPost);
             return NoContent(); 
         }
 

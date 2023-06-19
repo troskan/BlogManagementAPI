@@ -34,6 +34,7 @@ namespace BlogManagementAPI.Repositories
                                   YoutubeUrl = post.YoutubeUrl
                               };
             return postDetails.ToList();
-        }
+        } 
+        
     }
 }
