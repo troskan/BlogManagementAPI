@@ -37,7 +37,7 @@ namespace BlogManagementAPI.Controllers
 
         // POST: api/post
         [HttpPost("test")]
-       // [Authorize(Roles = "Admin")]
+  //      [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreatePost([FromBody] PostCreateDTO post)
         {
             if (!ModelState.IsValid)
@@ -52,6 +52,7 @@ namespace BlogManagementAPI.Controllers
                 CategoryID = post.CategoryID,
                 ImageUrls = post.ImageUrls?.Select(url => new ImageUrl { Url = url }).ToList(),
                 UserID = post.UserID,
+                YoutubeUrl = post.YoutubeUrl
 
             };
             var createdPost = await _db.Add(newPost);

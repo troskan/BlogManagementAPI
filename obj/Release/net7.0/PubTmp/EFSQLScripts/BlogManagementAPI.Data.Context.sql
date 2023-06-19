@@ -271,3 +271,136 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612131647_minimal ImageURL')
+BEGIN
+    ALTER TABLE [ImageUrl] DROP CONSTRAINT [FK_ImageUrl_Posts_PostID];
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612131647_minimal ImageURL')
+BEGIN
+    DECLARE @var2 sysname;
+    SELECT @var2 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ImageUrl]') AND [c].[name] = N'Url');
+    IF @var2 IS NOT NULL EXEC(N'ALTER TABLE [ImageUrl] DROP CONSTRAINT [' + @var2 + '];');
+    ALTER TABLE [ImageUrl] ALTER COLUMN [Url] nvarchar(max) NOT NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612131647_minimal ImageURL')
+BEGIN
+    DECLARE @var3 sysname;
+    SELECT @var3 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ImageUrl]') AND [c].[name] = N'PostID');
+    IF @var3 IS NOT NULL EXEC(N'ALTER TABLE [ImageUrl] DROP CONSTRAINT [' + @var3 + '];');
+    ALTER TABLE [ImageUrl] ALTER COLUMN [PostID] int NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612131647_minimal ImageURL')
+BEGIN
+    EXEC(N'UPDATE [Posts] SET [DatePosted] = ''2023-06-12T15:16:47.8015000+02:00''
+    WHERE [PostID] = 1;
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612131647_minimal ImageURL')
+BEGIN
+    ALTER TABLE [ImageUrl] ADD CONSTRAINT [FK_ImageUrl_Posts_PostID] FOREIGN KEY ([PostID]) REFERENCES [Posts] ([PostID]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612131647_minimal ImageURL')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230612131647_minimal ImageURL', N'7.0.5');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612132620_ImageUrl')
+BEGIN
+    ALTER TABLE [ImageUrl] DROP CONSTRAINT [FK_ImageUrl_Posts_PostID];
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612132620_ImageUrl')
+BEGIN
+    DROP INDEX [IX_ImageUrl_PostID] ON [ImageUrl];
+    DECLARE @var4 sysname;
+    SELECT @var4 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ImageUrl]') AND [c].[name] = N'PostID');
+    IF @var4 IS NOT NULL EXEC(N'ALTER TABLE [ImageUrl] DROP CONSTRAINT [' + @var4 + '];');
+    EXEC(N'UPDATE [ImageUrl] SET [PostID] = 0 WHERE [PostID] IS NULL');
+    ALTER TABLE [ImageUrl] ALTER COLUMN [PostID] int NOT NULL;
+    ALTER TABLE [ImageUrl] ADD DEFAULT 0 FOR [PostID];
+    CREATE INDEX [IX_ImageUrl_PostID] ON [ImageUrl] ([PostID]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612132620_ImageUrl')
+BEGIN
+    EXEC(N'UPDATE [Posts] SET [DatePosted] = ''2023-06-12T15:26:20.4436564+02:00''
+    WHERE [PostID] = 1;
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612132620_ImageUrl')
+BEGIN
+    ALTER TABLE [ImageUrl] ADD CONSTRAINT [FK_ImageUrl_Posts_PostID] FOREIGN KEY ([PostID]) REFERENCES [Posts] ([PostID]) ON DELETE CASCADE;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230612132620_ImageUrl')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230612132620_ImageUrl', N'7.0.5');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230615074631_youtube-url')
+BEGIN
+    ALTER TABLE [Posts] ADD [YoutubeUrl] nvarchar(max) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230615074631_youtube-url')
+BEGIN
+    EXEC(N'UPDATE [Posts] SET [DatePosted] = ''2023-06-15T09:46:31.1238673+02:00'', [YoutubeUrl] = NULL
+    WHERE [PostID] = 1;
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230615074631_youtube-url')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230615074631_youtube-url', N'7.0.5');
+END;
+GO
+
+COMMIT;
+GO
+

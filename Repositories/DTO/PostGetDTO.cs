@@ -14,6 +14,7 @@ namespace BlogManagementAPI.Repositories.DTO
         public string UserName { get; set; } 
 
         public List<string> ImageUrls { get; set; } = null;
+        public string? YoutubeUrl { get; set; } = null;
         public DateTime DatePosted { get; set; }
         public string DatePostedFormatted => DatePosted.ToString("yyyy-MM-dd HH:mm:ss");
         
