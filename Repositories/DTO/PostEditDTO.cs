@@ -7,6 +7,7 @@ namespace BlogManagementAPI.Repositories.DTO
     {
         [MinLength(1), MaxLength(50)]
         [Required]
+        
         public string Title { get; set; }
 
         [Required]

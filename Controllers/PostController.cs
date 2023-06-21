@@ -69,27 +69,21 @@ namespace BlogManagementAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            Post newPost = new Post()
-            {
-                Title = post.Title,
-                Content = post.Content,
-                DatePosted = DateTime.Now,
-                CategoryID = post.CategoryID,
-                ImageUrls = post.ImageUrls?.Select(url => new ImageUrl { Url = url }).ToList(),
-                UserID = post.UserID,
-                YoutubeUrl = post.YoutubeUrl
-
-            };
-
             var existingPost = await _db.Get(id);
+
             if (existingPost == null)
             {
                 return NotFound();
             }
 
-            newPost.PostID = existingPost.PostID;
-            await _db.Update(newPost);
+            existingPost.Title = post.Title;
+            existingPost.Content = post.Content;
+            existingPost.DatePosted = existingPost.DatePosted;
+            existingPost.ImageUrls = post.ImageUrls?.Select(url => new ImageUrl { Url = url }).ToList();
+            existingPost.UserID = post.UserID;
+            existingPost.YoutubeUrl = post.YoutubeUrl;
+
+            await _db.Update(existingPost);
             return NoContent(); 
         }
 
